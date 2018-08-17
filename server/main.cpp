@@ -25,7 +25,7 @@ int main(int argc, char** argv)
 
   unsigned short port = get_port(argv[1]);
 
-  network::Server server("127.0.0.1", port);
+  network::Server server("0.0.0.0", port);
 
   server.run();
   
