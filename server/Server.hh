@@ -9,6 +9,7 @@
 #include <iostream>
 #include "Socket.hh"
 #include "packet.hpp"
+#include "Connection.hpp"
 
 namespace network
 {  
@@ -27,7 +28,8 @@ namespace network
     buff_t buff_;
     std::deque<packet<buff_t::const_iterator>> received_packets_;
     std::deque<packet<buff_t::const_iterator>> packets_to_send_;
-    
+    std::vector<Connection> client_connections_;
+
    private:
     void receive_handler(const std::string& listen_addr, unsigned short port);
     void send_handler();
