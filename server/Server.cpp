@@ -36,7 +36,7 @@ void Server::receive_handler(const std::string &listen_addr, unsigned short port
   {
     Address sender;
     int len = sock_.receive(sender, buff_.data(), buff_.size() - 1);
-    
+
     {
       std::unique_lock<std::mutex> lk(receive_mutex_);
       std::cout << "Received : [" << std::string(buff_.begin(), buff_.begin() + len) << "]" << std::endl;
@@ -93,7 +93,7 @@ void Server::run()
     {
       auto p = packets.back();
       std::cout << "Processing : [" << std::string(p.data.begin(), p.data.end()) << "]" << std::endl;
-      std::this_thread::sleep_for(2s);
+      //      std::this_thread::sleep_for(2s);
       
       {
         std::unique_lock<std::mutex> lk(send_mutex_);
